@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>***********</title>
+    <title>授精・移植</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
@@ -11,7 +11,7 @@
 <body>
 
     <form class="w-75 mx-auto">
-        <p class="mt-3">分娩日</p>
+        <p class="mt-3">授精日・移植日</p>
         <div>
             <input type="date" class="form-control w-100 mt-1" name="day" placeholder="" required>
 
@@ -35,11 +35,16 @@
         </div>
         <p class="mt-3">授精師名</p>
         <div>
-            <input class="form-control w-100 mt-1" name="kubun3" required>
-        <p class="mt-3">授精師名</p>
+            <input class="form-control w-100 mt-1" name="kubun3" required>            
+        </div>
+        <p class="mt-3">区分</p>
         <div>
-            <input class="form-control w-100 mt-1" name="kubun4" required>
-        <p class="mt-3">授精師名</p>
+            <select class="form-control w-100 mt-1" name="kubun4" required>
+                <option value="自然発情">自然発情</option>
+                <option value="同期化">同期化</option>
+                <option value="PG製剤単独投与">PG製剤単独投与</option>
+                <option value="CIDR・PRID単独使用">CIDR・PRID単独使用</option>
+        <p class="mt-3">メモ</p>
         <div>
             <input class="form-control w-100 mt-1" name="kubun5" required>
 
@@ -60,7 +65,7 @@
     <script>
 
         $(document).ready(function () {
-            const liffId = "**************************************";
+            const liffId = "1656831272-w9vWW2gR";
             initializeLiff(liffId);
         })
 
@@ -95,7 +100,7 @@
                 const kubun  = $('select[name="kubun"]').val();
                 const kubun2  = $('input[name="kubun2"]').val();
                 const kubun3 = $('input[name="kubun3"]').val();
-                const kubun4 = $('input[name="kubun4"]').val();
+                const kubun4 = $('select[name="kubun4"]').val();
                 const kubun5 = $('input[name="kubun5"]').val();
                 const msg = `********\n${day}\n${no}\n${kubun}\n${kubun2}\n${kubun3}\n${kubun4}\n${kubun5}`;
                 sendText(msg);
